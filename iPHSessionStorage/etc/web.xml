@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee">
+  <display-name>iPH/Collaborative Session Service</display-name>
+  <description>This web service stores sessions related to symbolic regions provided by MoCA.</description>
+  <listener>
+    <listener-class>com.sun.xml.ws.transport.http.servlet.WSServletContextListener</listener-class>
+  </listener>   
+  <servlet>
+    <servlet-name>iPHSessionService</servlet-name>
+    <display-name>iPH/Collaborative Session Service</display-name>
+    <description>This web service stores sessions related to symbolic regions provided by MoCA.</description>    
+    <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>    
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>iPHSessionService</servlet-name>
+    <url-pattern>/iPHSessionService</url-pattern>
+  </servlet-mapping>
+  <session-config>
+    <session-timeout>60</session-timeout>
+  </session-config>
+</web-app>

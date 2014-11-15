@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://server.session.iph/" targetNamespace="http://server.session.iph/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="addCollaborativeSession" type="tns:addCollaborativeSession" />
+  <xs:element name="addCollaborativeSessionResponse" type="tns:addCollaborativeSessionResponse" />
+  <xs:element name="clearAll" type="tns:clearAll" />
+  <xs:element name="clearAllResponse" type="tns:clearAllResponse" />
+  <xs:element name="clearRegion" type="tns:clearRegion" />
+  <xs:element name="clearRegionResponse" type="tns:clearRegionResponse" />
+  <xs:element name="getCollaborativeSessionsRegion" type="tns:getCollaborativeSessionsRegion" />
+  <xs:element name="getCollaborativeSessionsRegionResponse" type="tns:getCollaborativeSessionsRegionResponse" />
+  <xs:element name="isConnected" type="tns:isConnected" />
+  <xs:element name="isConnectedResponse" type="tns:isConnectedResponse" />
+  <xs:element name="removeCollaborativeSession" type="tns:removeCollaborativeSession" />
+  <xs:element name="removeCollaborativeSessionResponse" type="tns:removeCollaborativeSessionResponse" />
+  <xs:complexType name="getCollaborativeSessionsRegion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getCollaborativeSessionsRegionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" nillable="true" type="tns:collaborativeSession" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="collaborativeSession">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ip" type="xs:string" />
+      <xs:element minOccurs="0" name="ownerSession" type="xs:string" />
+      <xs:element minOccurs="0" name="password" type="xs:string" />
+      <xs:element name="port" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="removeCollaborativeSession">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element name="arg2" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="removeCollaborativeSessionResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="addCollaborativeSession">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element name="arg2" type="xs:int" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="addCollaborativeSessionResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="clearAll">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="clearAllResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="isConnected">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="isConnectedResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="clearRegion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="clearRegionResponse">
+    <xs:sequence />
+  </xs:complexType>
+</xs:schema>

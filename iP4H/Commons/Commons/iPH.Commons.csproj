@@ -1,0 +1,329 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E7632C00-6507-47CE-91CE-701798B7779F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>iPH.Commons</RootNamespace>
+    <AssemblyName>iPH.Commons</AssemblyName>
+    <ProjectTypeGuids>{4D628B5B-2FBC-4AA6-8C16-197242AEB884};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PlatformFamilyName>WindowsCE</PlatformFamilyName>
+    <PlatformID>E2BECB1F-8C8C-41ba-B736-9BE7D946A398</PlatformID>
+    <OSVersion>5.0</OSVersion>
+    <DeployDirSuffix>Commons</DeployDirSuffix>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FormFactorID>
+    </FormFactorID>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;WindowsCE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <FileAlignment>512</FileAlignment>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;$(PlatformFamilyName)</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <FileAlignment>512</FileAlignment>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CompactFormatter, Version=1.0.0.27374, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\CompactFormatter-1.0.0\netcf-1.0\CompactFormatter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsCE.Forms" />
+    <Reference Include="mscorlib" />
+    <Reference Include="OpenNETCF, Version=2.2.0.0, Culture=neutral, PublicKeyToken=e60dbea84bb431b7, processorArchitecture=MSIL" />
+    <Reference Include="OpenNETCF.Net, Version=2.1.0.0, Culture=neutral, PublicKeyToken=e60dbea84bb431b7, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataGrid" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configuration\InteractiveConfiguration.cs" />
+    <Compile Include="Context\ContextInformationRule.cs" />
+    <Compile Include="Context\ContextRule.cs" />
+    <Compile Include="Context\Session\SessionContextTimer.cs" />
+    <Compile Include="Context\Timer\BaseContextTimer.cs" />
+    <Compile Include="Context\Timer\ContexTimerFactory.cs" />
+    <Compile Include="Context\Timer\ContribuitorContextTimer.cs" />
+    <Compile Include="Context\Timer\MasterContextTimer.cs" />
+    <Compile Include="Forms\ConfigurationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ConfigurationForm.Designer.cs">
+      <DependentUpon>ConfigurationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ContextInformationRuleAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ContextInformationRuleAddForm.Designer.cs">
+      <DependentUpon>ContextInformationRuleAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ActiveSessionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ActiveSessionsForm.Designer.cs">
+      <DependentUpon>ActiveSessionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ContextInformationRulesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ContextInformationRulesForm.Designer.cs">
+      <DependentUpon>ContextInformationRulesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ContextRuleAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ContextRuleAddForm.Designer.cs">
+      <DependentUpon>ContextRuleAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\InformationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\InformationForm.Designer.cs">
+      <DependentUpon>InformationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ParticipantsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ParticipantsForm.Designer.cs">
+      <DependentUpon>ParticipantsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ink\InkProperties.cs" />
+    <Compile Include="Manager\ContributionsManager.cs" />
+    <Compile Include="Forms\InteractivePresentationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\InteractivePresentationForm.Designer.cs">
+      <DependentUpon>InteractivePresentationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Functions\BaseFunction.cs" />
+    <Compile Include="Functions\ClassroomPersistenceFunction.cs" />
+    <Compile Include="Functions\ContributionFunction.cs" />
+    <Compile Include="Functions\PresentationSendFunction.cs" />
+    <Compile Include="Manager\ContextInformationManager.cs" />
+    <Compile Include="Manager\FunctionsManager.cs" />
+    <Compile Include="Functions\ParticipantsManagerFunction.cs" />
+    <Compile Include="Functions\SubmitModificationsFunction.cs" />
+    <Compile Include="Functions\PresentationEditionFunction.cs" />
+    <Compile Include="Manager\MessageManager.cs" />
+    <Compile Include="Manager\ParticipantsManager.cs" />
+    <Compile Include="Messages\TestMessage.cs" />
+    <Compile Include="Messages\ConnectionMessage.cs" />
+    <Compile Include="Messages\ContextInformationMessage.cs" />
+    <Compile Include="Messages\ContributionMessage.cs" />
+    <Compile Include="Messages\PresentationMessage.cs" />
+    <Compile Include="Messages\BaseMessage.cs" />
+    <Compile Include="Parameters\PresentationParameters.cs" />
+    <Compile Include="Session\SessionServiceWrapper.cs" />
+    <Compile Include="Tests\EnergyLevel\EnergyTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tests\EnergyLevel\EnergyTestForm.Designer.cs">
+      <DependentUpon>EnergyTestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\MessageData.cs" />
+    <Compile Include="Tests\CommTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tests\CommTestForm.Designer.cs">
+      <DependentUpon>CommTestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\TestManager.cs" />
+    <Compile Include="User\Role\Contribuitor.cs" />
+    <Compile Include="User\Role\Offline.cs" />
+    <Compile Include="User\Role\Viewer.cs" />
+    <Compile Include="User\Role\Master.cs" />
+    <Compile Include="User\Participant.cs" />
+    <Compile Include="User\Role\BaseRole.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Forms\SessionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SessionForm.Designer.cs">
+      <DependentUpon>SessionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Session\SessionInfo.cs" />
+    <Compile Include="Session\SessionKey.cs" />
+    <Compile Include="Presentation\Arguments\NewSlideArgs.cs" />
+    <Compile Include="Presentation\Arguments\SelectedSlideArgs.cs" />
+    <Compile Include="Presentation\Arguments\SlidesRemovedArgs.cs" />
+    <Compile Include="Presentation\Deck.cs" />
+    <Compile Include="Presentation\Controls\DeckPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\DeckPanel.Designer.cs">
+      <DependentUpon>DeckPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Controls\DeckSlidePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\DeckSlidePanel.Designer.cs">
+      <DependentUpon>DeckSlidePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Slide.cs" />
+    <Compile Include="Presentation\Controls\SlidePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentation\Controls\SlidePanel.Designer.cs">
+      <DependentUpon>SlidePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Slides.cs" />
+    <Compile Include="Web References\SessionService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\LAC.Contributions\LAC.Contribution\LAC.Contribs.csproj">
+      <Project>{CD40A8C1-A2BB-478F-BC4D-5F4D434949D4}</Project>
+      <Name>LAC.Contribs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ContextInformation\LAC.ContextInformation.csproj">
+      <Project>{165BAA2C-B9D6-4CE0-A5A5-A585BC5EABD5}</Project>
+      <Name>LAC.ContextInformation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LAC.Communications\LAC.Communications.csproj">
+      <Project>{4271FA08-08DA-48B9-BF75-DE33A30754C7}</Project>
+      <Name>LAC.Communications</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LAC.Functions\LAC.Functions.csproj">
+      <Project>{03F8E2E9-390E-431F-A3E6-DDBA2F0DEFB5}</Project>
+      <Name>LAC.Functions</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\ConfigurationForm.resx">
+      <DependentUpon>ConfigurationForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ContextInformationRuleAddForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ContextInformationRuleAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ActiveSessionsForm.resx">
+      <DependentUpon>ActiveSessionsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ContextInformationRulesForm.resx">
+      <DependentUpon>ContextInformationRulesForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ContextRuleAddForm.resx">
+      <DependentUpon>ContextRuleAddForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\InformationForm.resx">
+      <DependentUpon>InformationForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ParticipantsForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ParticipantsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SessionForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SessionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\InteractivePresentationForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>InteractivePresentationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Controls\DeckPanel.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DeckPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Controls\DeckSlidePanel.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DeckSlidePanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Controls\SlidePanel.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SlidePanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tests\EnergyLevel\EnergyTestForm.resx">
+      <DependentUpon>EnergyTestForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tests\CommTestForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CommTestForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Context\iPH.Commons.Context.cd" />
+    <None Include="Messages\iPH.Commons.Messages.cd" />
+    <None Include="Presentation\iPH.Commons.Presentation.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="User\iPH.Commons.User.cd" />
+    <None Include="Web References\SessionService\collaborativeSession.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SessionService\CollaborativeSessionService.wsdl" />
+    <None Include="Web References\SessionService\iPHSessionService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\SessionService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://localhost:8080/iPHSessionService/iPHSessionService%3fwsdl">
+      <UrlBehavior>Static</UrlBehavior>
+      <RelPath>Web References\SessionService\</RelPath>
+      <UpdateFromURL>http://localhost:8080/iPHSessionService/iPHSessionService%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>
+      </CachedAppSettingsObjectName>
+      <CachedSettingsPropName>
+      </CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <Import Condition="'$(TargetFrameworkVersion)' == 'v1.0'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.v1.targets" />
+  <Import Condition="'$(TargetFrameworkVersion)' == 'v2.0'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}">
+        <HostingProcess disable="1" />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

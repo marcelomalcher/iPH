@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Tahoma" Size="8.25" />
+  <Class Name="iPH.Tool.Desktop.ConfigurationForm" Collapsed="true">
+    <Position X="2.75" Y="1.5" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>ConfigurationForm.cs</FileName>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAAAACAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="iPH.Tool.Desktop.MainForm" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="2" />
+    <TypeIdentifier>
+      <FileName>MainForm.cs</FileName>
+      <HashCode>eNhCsiCI8WEyEQERGM/gnHViGEAAudVpgKkvLHfsRZA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+</ClassDiagram>

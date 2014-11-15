@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://server.mocaWS.personalities.moca/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element xmlns:ns1="http://server.mocaWS.personalities.moca/" name="getEventTicketLISInfo" type="ns1:getEventTicketLISInfo" />
+  <xs:complexType name="getEventTicketLISInfo">
+    <xs:sequence>
+      <xs:element xmlns:ns2="http://server.mocaWS.personalities.moca/" minOccurs="0" name="arg0" type="ns2:ticketWS" />
+      <xs:element name="arg1" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ticketWS">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+      <xs:element name="time" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:ns3="http://server.mocaWS.personalities.moca/" name="getEventTicketLISInfoResponse" type="ns3:getEventTicketLISInfoResponse" />
+  <xs:complexType name="getEventTicketLISInfoResponse">
+    <xs:sequence>
+      <xs:element xmlns:ns4="http://server.mocaWS.personalities.moca/" minOccurs="0" maxOccurs="unbounded" name="return" type="ns4:deviceRegionWS" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="deviceRegionWS">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="area" type="xs:string" />
+      <xs:element minOccurs="0" name="macAddress" type="xs:string" />
+      <xs:element name="typeEvent" type="xs:byte" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:ns5="http://server.mocaWS.personalities.moca/" name="askLISAreas" type="ns5:askLISAreas" />
+  <xs:complexType name="askLISAreas" />
+  <xs:element xmlns:ns6="http://server.mocaWS.personalities.moca/" name="askLISAreasResponse" type="ns6:askLISAreasResponse" />
+  <xs:complexType name="askLISAreasResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:ns7="http://server.mocaWS.personalities.moca/" name="askLISDevices" type="ns7:askLISDevices" />
+  <xs:complexType name="askLISDevices" />
+  <xs:element xmlns:ns8="http://server.mocaWS.personalities.moca/" name="askLISDevicesResponse" type="ns8:askLISDevicesResponse" />
+  <xs:complexType name="askLISDevicesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:ns9="http://server.mocaWS.personalities.moca/" name="isConnected" type="ns9:isConnected" />
+  <xs:complexType name="isConnected" />
+  <xs:element xmlns:ns10="http://server.mocaWS.personalities.moca/" name="isConnectedResponse" type="ns10:isConnectedResponse" />
+  <xs:complexType name="isConnectedResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:ns11="http://server.mocaWS.personalities.moca/" name="askLISAreaOfDevice" type="ns11:askLISAreaOfDevice" />
+  <xs:complexType name="askLISAreaOfDevice">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:ns12="http://server.mocaWS.personalities.moca/" name="askLISAreaOfDeviceResponse" type="ns12:askLISAreaOfDeviceResponse" />
+  <xs:complexType name="askLISAreaOfDeviceResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:ns13="http://server.mocaWS.personalities.moca/" name="requestDeviceEventTicketLIS" type="ns13:requestDeviceEventTicketLIS" />
+  <xs:complexType name="requestDeviceEventTicketLIS">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:ns14="http://server.mocaWS.personalities.moca/" name="requestDeviceEventTicketLISResponse" type="ns14:requestDeviceEventTicketLISResponse" />
+  <xs:complexType name="requestDeviceEventTicketLISResponse">
+    <xs:sequence>
+      <xs:element xmlns:ns15="http://server.mocaWS.personalities.moca/" minOccurs="0" name="return" type="ns15:ticketWS" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:ns16="http://server.mocaWS.personalities.moca/" name="requestDeviceEventLIS" type="ns16:requestDeviceEventLIS" />
+  <xs:complexType name="requestDeviceEventLIS">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element name="arg1" type="xs:long" />
+      <xs:element name="arg2" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:ns17="http://server.mocaWS.personalities.moca/" name="requestDeviceEventLISResponse" type="ns17:requestDeviceEventLISResponse" />
+  <xs:complexType name="requestDeviceEventLISResponse">
+    <xs:sequence>
+      <xs:element xmlns:ns18="http://server.mocaWS.personalities.moca/" minOccurs="0" maxOccurs="unbounded" name="return" type="ns18:deviceRegionWS" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:ns19="http://server.mocaWS.personalities.moca/" name="requestAreaEventLIS" type="ns19:requestAreaEventLIS" />
+  <xs:complexType name="requestAreaEventLIS">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element name="arg1" type="xs:long" />
+      <xs:element name="arg2" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:ns20="http://server.mocaWS.personalities.moca/" name="requestAreaEventLISResponse" type="ns20:requestAreaEventLISResponse" />
+  <xs:complexType name="requestAreaEventLISResponse">
+    <xs:sequence>
+      <xs:element xmlns:ns21="http://server.mocaWS.personalities.moca/" minOccurs="0" maxOccurs="unbounded" name="return" type="ns21:deviceRegionWS" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:ns22="http://server.mocaWS.personalities.moca/" name="getTicketCISInfo" type="ns22:getTicketCISInfo" />
+  <xs:complexType name="getTicketCISInfo">
+    <xs:sequence>
+      <xs:element xmlns:ns23="http://server.mocaWS.personalities.moca/" minOccurs="0" name="arg0" type="ns23:ticketWS" />
+      <xs:element name="arg1" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:ns24="http://server.mocaWS.personalities.moca/" name="getTicketCISInfoResponse" type="ns24:getTicketCISInfoResponse" />
+  <xs:complexType name="getTicketCISInfoResponse">
+    <xs:sequence>
+      <xs:element xmlns:ns25="http://server.mocaWS.personalities.moca/" minOccurs="0" maxOccurs="unbounded" name="return" type="ns25:deviceContextWS" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="deviceContextWS">
+    <xs:sequence>
+      <xs:element name="advertisementPeriodicity" type="xs:int" />
+      <xs:element name="apChange" type="xs:boolean" />
+      <xs:element name="cpuUsage" type="xs:int" />
+      <xs:element minOccurs="0" name="currentAPMacAddress" type="xs:string" />
+      <xs:element name="deltaT" type="xs:long" />
+      <xs:element name="energyLevel" type="xs:int" />
+      <xs:element name="freeMemory" type="xs:long" />
+      <xs:element name="ipChange" type="xs:boolean" />
+      <xs:element minOccurs="0" name="mobileHostIPAddress" type="xs:string" />
+      <xs:element minOccurs="0" name="mobileHostMacAddress" type="xs:string" />
+      <xs:element minOccurs="0" name="networkMask" type="xs:string" />
+      <xs:element name="onLine" type="xs:boolean" />
+      <xs:element name="timeStamp" type="xs:long" />
+      <xs:element name="wlanConnectivityLevel" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:ns26="http://server.mocaWS.personalities.moca/" name="askLISDevicesOfArea" type="ns26:askLISDevicesOfArea" />
+  <xs:complexType name="askLISDevicesOfArea">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:ns27="http://server.mocaWS.personalities.moca/" name="askLISDevicesOfAreaResponse" type="ns27:askLISDevicesOfAreaResponse" />
+  <xs:complexType name="askLISDevicesOfAreaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:ns28="http://server.mocaWS.personalities.moca/" name="askCIS" type="ns28:askCIS" />
+  <xs:complexType name="askCIS">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:ns29="http://server.mocaWS.personalities.moca/" name="askCISResponse" type="ns29:askCISResponse" />
+  <xs:complexType name="askCISResponse">
+    <xs:sequence>
+      <xs:element xmlns:ns30="http://server.mocaWS.personalities.moca/" minOccurs="0" name="return" type="ns30:deviceContextWS" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:ns31="http://server.mocaWS.personalities.moca/" name="requestTicketCIS" type="ns31:requestTicketCIS" />
+  <xs:complexType name="requestTicketCIS">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:ns32="http://server.mocaWS.personalities.moca/" name="requestTicketCISResponse" type="ns32:requestTicketCISResponse" />
+  <xs:complexType name="requestTicketCISResponse">
+    <xs:sequence>
+      <xs:element xmlns:ns33="http://server.mocaWS.personalities.moca/" minOccurs="0" name="return" type="ns33:ticketWS" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:ns34="http://server.mocaWS.personalities.moca/" name="requestAreaEventTicketLIS" type="ns34:requestAreaEventTicketLIS" />
+  <xs:complexType name="requestAreaEventTicketLIS">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:ns35="http://server.mocaWS.personalities.moca/" name="requestAreaEventTicketLISResponse" type="ns35:requestAreaEventTicketLISResponse" />
+  <xs:complexType name="requestAreaEventTicketLISResponse">
+    <xs:sequence>
+      <xs:element xmlns:ns36="http://server.mocaWS.personalities.moca/" minOccurs="0" name="return" type="ns36:ticketWS" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:ns37="http://server.mocaWS.personalities.moca/" name="requestCIS" type="ns37:requestCIS" />
+  <xs:complexType name="requestCIS">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element name="arg2" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:ns38="http://server.mocaWS.personalities.moca/" name="requestCISResponse" type="ns38:requestCISResponse" />
+  <xs:complexType name="requestCISResponse">
+    <xs:sequence>
+      <xs:element xmlns:ns39="http://server.mocaWS.personalities.moca/" minOccurs="0" name="return" type="ns39:deviceContextWS" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

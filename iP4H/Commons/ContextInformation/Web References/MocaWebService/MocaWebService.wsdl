@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="http://server.mocaWS.personalities.moca/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MocaWebService" targetNamespace="http://server.mocaWS.personalities.moca/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://139.82.24.238:3636/mocaWS/mocaWS?xsd=1" namespace="http://server.mocaWS.personalities.moca/" />
+    </xsd:schema>
+  </types>
+  <message name="isConnected">
+    <part name="parameters" element="tns:isConnected" />
+  </message>
+  <message name="isConnectedResponse">
+    <part name="parameters" element="tns:isConnectedResponse" />
+  </message>
+  <message name="askCIS">
+    <part name="parameters" element="tns:askCIS" />
+  </message>
+  <message name="askCISResponse">
+    <part name="parameters" element="tns:askCISResponse" />
+  </message>
+  <message name="requestCIS">
+    <part name="parameters" element="tns:requestCIS" />
+  </message>
+  <message name="requestCISResponse">
+    <part name="parameters" element="tns:requestCISResponse" />
+  </message>
+  <message name="requestTicketCIS">
+    <part name="parameters" element="tns:requestTicketCIS" />
+  </message>
+  <message name="requestTicketCISResponse">
+    <part name="parameters" element="tns:requestTicketCISResponse" />
+  </message>
+  <message name="getTicketCISInfo">
+    <part name="parameters" element="tns:getTicketCISInfo" />
+  </message>
+  <message name="getTicketCISInfoResponse">
+    <part name="parameters" element="tns:getTicketCISInfoResponse" />
+  </message>
+  <message name="askLISAreas">
+    <part name="parameters" element="tns:askLISAreas" />
+  </message>
+  <message name="askLISAreasResponse">
+    <part name="parameters" element="tns:askLISAreasResponse" />
+  </message>
+  <message name="askLISAreaOfDevice">
+    <part name="parameters" element="tns:askLISAreaOfDevice" />
+  </message>
+  <message name="askLISAreaOfDeviceResponse">
+    <part name="parameters" element="tns:askLISAreaOfDeviceResponse" />
+  </message>
+  <message name="askLISDevices">
+    <part name="parameters" element="tns:askLISDevices" />
+  </message>
+  <message name="askLISDevicesResponse">
+    <part name="parameters" element="tns:askLISDevicesResponse" />
+  </message>
+  <message name="askLISDevicesOfArea">
+    <part name="parameters" element="tns:askLISDevicesOfArea" />
+  </message>
+  <message name="askLISDevicesOfAreaResponse">
+    <part name="parameters" element="tns:askLISDevicesOfAreaResponse" />
+  </message>
+  <message name="requestDeviceEventLIS">
+    <part name="parameters" element="tns:requestDeviceEventLIS" />
+  </message>
+  <message name="requestDeviceEventLISResponse">
+    <part name="parameters" element="tns:requestDeviceEventLISResponse" />
+  </message>
+  <message name="requestDeviceEventTicketLIS">
+    <part name="parameters" element="tns:requestDeviceEventTicketLIS" />
+  </message>
+  <message name="requestDeviceEventTicketLISResponse">
+    <part name="parameters" element="tns:requestDeviceEventTicketLISResponse" />
+  </message>
+  <message name="requestAreaEventLIS">
+    <part name="parameters" element="tns:requestAreaEventLIS" />
+  </message>
+  <message name="requestAreaEventLISResponse">
+    <part name="parameters" element="tns:requestAreaEventLISResponse" />
+  </message>
+  <message name="requestAreaEventTicketLIS">
+    <part name="parameters" element="tns:requestAreaEventTicketLIS" />
+  </message>
+  <message name="requestAreaEventTicketLISResponse">
+    <part name="parameters" element="tns:requestAreaEventTicketLISResponse" />
+  </message>
+  <message name="getEventTicketLISInfo">
+    <part name="parameters" element="tns:getEventTicketLISInfo" />
+  </message>
+  <message name="getEventTicketLISInfoResponse">
+    <part name="parameters" element="tns:getEventTicketLISInfoResponse" />
+  </message>
+  <portType name="MocaWS">
+    <operation name="isConnected">
+      <input message="tns:isConnected" />
+      <output message="tns:isConnectedResponse" />
+    </operation>
+    <operation name="askCIS">
+      <input message="tns:askCIS" />
+      <output message="tns:askCISResponse" />
+    </operation>
+    <operation name="requestCIS">
+      <input message="tns:requestCIS" />
+      <output message="tns:requestCISResponse" />
+    </operation>
+    <operation name="requestTicketCIS">
+      <input message="tns:requestTicketCIS" />
+      <output message="tns:requestTicketCISResponse" />
+    </operation>
+    <operation name="getTicketCISInfo">
+      <input message="tns:getTicketCISInfo" />
+      <output message="tns:getTicketCISInfoResponse" />
+    </operation>
+    <operation name="askLISAreas">
+      <input message="tns:askLISAreas" />
+      <output message="tns:askLISAreasResponse" />
+    </operation>
+    <operation name="askLISAreaOfDevice">
+      <input message="tns:askLISAreaOfDevice" />
+      <output message="tns:askLISAreaOfDeviceResponse" />
+    </operation>
+    <operation name="askLISDevices">
+      <input message="tns:askLISDevices" />
+      <output message="tns:askLISDevicesResponse" />
+    </operation>
+    <operation name="askLISDevicesOfArea">
+      <input message="tns:askLISDevicesOfArea" />
+      <output message="tns:askLISDevicesOfAreaResponse" />
+    </operation>
+    <operation name="requestDeviceEventLIS">
+      <input message="tns:requestDeviceEventLIS" />
+      <output message="tns:requestDeviceEventLISResponse" />
+    </operation>
+    <operation name="requestDeviceEventTicketLIS">
+      <input message="tns:requestDeviceEventTicketLIS" />
+      <output message="tns:requestDeviceEventTicketLISResponse" />
+    </operation>
+    <operation name="requestAreaEventLIS">
+      <input message="tns:requestAreaEventLIS" />
+      <output message="tns:requestAreaEventLISResponse" />
+    </operation>
+    <operation name="requestAreaEventTicketLIS">
+      <input message="tns:requestAreaEventTicketLIS" />
+      <output message="tns:requestAreaEventTicketLISResponse" />
+    </operation>
+    <operation name="getEventTicketLISInfo">
+      <input message="tns:getEventTicketLISInfo" />
+      <output message="tns:getEventTicketLISInfoResponse" />
+    </operation>
+  </portType>
+  <binding name="MocaWSPortBinding" type="tns:MocaWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="isConnected">
+      <soap:operation soapAction="urn:isConnected" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="askCIS">
+      <soap:operation soapAction="urn:askCIS" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="requestCIS">
+      <soap:operation soapAction="urn:requestCIS" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="requestTicketCIS">
+      <soap:operation soapAction="urn:requestTicketCIS" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getTicketCISInfo">
+      <soap:operation soapAction="urn:getTicketCISInfo" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="askLISAreas">
+      <soap:operation soapAction="urn:askLISAreas" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="askLISAreaOfDevice">
+      <soap:operation soapAction="urn:askLISAreaOfDevice" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="askLISDevices">
+      <soap:operation soapAction="urn:askLISDevices" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="askLISDevicesOfArea">
+      <soap:operation soapAction="urn:askLISDevicesOfArea" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="requestDeviceEventLIS">
+      <soap:operation soapAction="urn:requestDeviceEventLIS" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="requestDeviceEventTicketLIS">
+      <soap:operation soapAction="urn:requestDeviceEventTicketLIS" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="requestAreaEventLIS">
+      <soap:operation soapAction="urn:requestAreaEventLIS" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="requestAreaEventTicketLIS">
+      <soap:operation soapAction="urn:requestAreaEventTicketLIS" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getEventTicketLISInfo">
+      <soap:operation soapAction="urn:getEventTicketLISInfo" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="MocaWebService">
+    <port name="MocaWSPort" binding="tns:MocaWSPortBinding">
+      <soap:address location="http://139.82.24.238:3636/mocaWS/mocaWS" />
+    </port>
+  </service>
+</definitions>

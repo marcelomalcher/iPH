@@ -1,0 +1,234 @@
+Project:
+1. Added reference to CompactFormatter
+2. Added reference to CCXP.Utils
+3. Added reference to OpenNETCF
+
+File: Collections.cs
+1. Added Reference to CCXP.Utils for DictionaryBase
+
+File: RtcpListener.cs
+1. Added Reference to OpenNETCF.Diagnostics for EventLogEntryType enum
+
+File: RtcpSender.cs
+1. Added Reference to OpenNETCF.Diagnostics for EventLogEntryType enum
+
+2. There is not Thread.Sleep(Timestamp)
+   Changed by Thread.Sleep(Timestamp.Miliseconds)
+   Before:
+     Thread.Sleep(interval);
+   After:
+     Thread.Sleep(interval.Milliseconds);
+
+File: RtpListener.cs
+1. Added Reference to OpenNETCF.Diagnostics for EventLogEntryType enum
+
+2. Added Reference to CCXP.Utils.Collections for SynchronizedQueue class
+
+3. There is not Queue.Synchronized
+   Changed object's class to SynchronizedQueue from CCXP.Utils.Collections
+   Before:
+     private Queue receivedPackets = Queue.Synchronized(new Queue());
+   After:
+     private SynchronizedQueue receivedPackets= new SynchronizedQueue(new Queue()); 
+
+4. There is not Environment.NewLine
+   Changed by "\r\n"
+   Before:
+     LogEvent("Error Disposing RtpListener" +
+               Environment.NewLine + e.ToString(),
+               EventLogEntryType.Error, (int)RtpEL.ID.Error);
+   After:
+     LogEvent("Error Disposing RtpListener" +
+              "\r\n" + e.ToString(),
+              EventLogEntryType.Error, (int)RtpEL.ID.Error);
+
+File: RtpSender.cs
+1. Added Reference to OpenNETCF.Diagnostics for EventLogEntryType enum
+
+2. No overload for method 'ArgumentOutOfRangeException' takes '3' arguments
+   Before:
+     throw new ArgumentOutOfRangeException("cFecPx", cFecPx, "Must be >= 1");
+   After:
+     throw new ArgumentOutOfRangeException("cFecPx = " + cFecPx.ToString(), "Must be >= 1");
+
+
+3. No overload for method 'ArgumentOutOfRangeException' takes '3' arguments
+   Before:
+     throw new ArgumentOutOfRangeException("cFecPx", cFecPx, "Must be >= 1");
+   After:
+     throw new ArgumentOutOfRangeException("cFecPx = " + cFecPx.ToString(), "Must be >= 1");
+
+File: EventLog.cs
+1. Added Reference to OpenNETCF.Diagnostics for EventLogEntryType enum
+
+2. Removed all install/uninstall method. Compact Framework does not support Install
+   Commented all
+
+File: RtpSession.cs
+1. Added Reference to OpenNETCF.Diagnostics for EventLogEntryType enum
+
+2. There is no referente to ConfigurationManager
+   Removed all 
+
+3. Removed all install/uninstall method. Compact Framework does not support Install
+   Commented all
+ 
+4. Removed install method
+   Commented
+
+File: RegistrarClient.cs
+1. Compact Framework does not supports binary formatter
+   Commented:
+   > using System.Runtime.Serialization.Formatters.Binary; // Used to send an object over network
+
+2. There is System.Diagnostics.EventLogEntryType in Compact Framwork
+   Changed by OpenNETCF.Diagnostics.EventLogEntryType
+   Before:
+     eventLog.WriteEntry("Join request to server " + regSrvIP + ":" + regSrvPort +
+     "for " + joiningMulticastEP + " failed. \n" + e.ToString(), System.Diagnostics.EventLogEntryType.Error, (int)RtpEL.ID.ReflectorJoinFailed);
+   After:
+     eventLog.WriteEntry("Join request to server " + regSrvIP + ":" + regSrvPort +
+     "for " + joiningMulticastEP + " failed. \n" + e.ToString(), OpenNETCF.Diagnostics.EventLogEntryType.Error, (int)RtpEL.ID.ReflectorJoinFailed);
+     
+3. There is System.Diagnostics.EventLogEntryType in Compact Framwork
+   Changed by OpenNETCF.Diagnostics.EventLogEntryType
+   Before:
+     eventLog.WriteEntry("Leave request to server " + regSrvIP + ":" + regSrvPort +
+     "for " + joiningMulticastEP + " failed. \n" + e.ToString(), System.Diagnostics.EventLogEntryType.Error, (int)RtpEL.ID.ReflectorJoinFailed);
+   After:
+     eventLog.WriteEntry("Leave request to server " + regSrvIP + ":" + regSrvPort +
+     "for " + joiningMulticastEP + " failed. \n" + e.ToString(), OpenNETCF.Diagnostics.EventLogEntryType.Error, (int)RtpEL.ID.ReflectorJoinFailed);
+     
+4. Added Reference to CompactFormatter for serialization
+
+5. There is no BinaryFormatter in Compact Framework
+   Replaced by CompactFormatter
+   Before:
+     BinaryFormatter bf = new BinaryFormatter();
+   After:
+     CompactFormatter.CompactFormatter bf = new CompactFormatter.CompactFormatter(CFormatterMode.SAFE);
+
+6. 5. There is no BinaryFormatter in Compact Framework
+   Replaced by CompactFormatter
+   Before:
+     BinaryFormatter bf = new BinaryFormatter();
+   After:
+     CompactFormatter.CompactFormatter bf = new CompactFormatter.CompactFormatter(CFormatterMode.SAFE);
+        
+File: RtpStream.cs
+1. Added Reference to OpenNETCF.Diagnostics for EventLogEntryType enum
+
+2. No overload for method 'ArgumentOutOfRangeException' takes '3' arguments
+   Before:
+     throw new ArgumentOutOfRangeException("fecPxExp", fecPxExp, "Must be >= 1");
+   After:
+     throw new ArgumentOutOfRangeException("fecPxExp = " + fecPxExp.ToString(), "Must be >= 1");
+ 
+3. No overload for method 'Parse' takes '2' arguments
+   Before:
+     PayloadType pt = (PayloadType)Enum.Parse(typeof(PayloadType), sPT);
+   After:
+     PayloadType pt = (PayloadType)Enum.Parse(typeof(PayloadType), sPT, false);
+
+File: Events.cs
+1. Added Reference to OpenNETCF.Diagnostics for EventLogEntryType enum
+
+2. There is not Delegate.DynamicInvoke
+   Replaced
+   Before:
+     sink.DynamicInvoke(args);
+   After:
+     del.GetType().GetMethod("Invoke").Invoke(del, args);                        
+
+File: ConnectivityDetector.cs
+1. Added Reference to OpenNETCF.Diagnostics for EventLogEntryType enum
+
+2. There is no referente to ConfigurationManager
+   Removed all 
+
+File: EventThrower.cs
+1. Added Reference to CCXP.Utils.Collections for SynchronizedQueue class
+
+2. There is not Queue.Synchronized
+   Changed object's class to SynchronizedQueue from CCXP.Utils.Collections
+   Before:
+     private static Queue syncWorkItems = Queue.Synchronized(new Queue()); // of WorkItem structs
+   After:
+     private static SynchronizedQueue syncWorkItems = new SynchronizedQueue(new Queue()); // of WorkItem structs
+     
+3. Added Reference to OpenNETCF.Diagnostics for EventLogEntryType enum
+
+File: RtpPacket.cs
+1. No overload for method 'ArgumentOutOfRangeException' takes '3' arguments
+   Before:
+     throw new ArgumentOutOfRangeException("value", value.Length, "The maximum " +
+										   "payload for this packet is: " + MaxPayloadSize);
+   After:    
+     throw new ArgumentOutOfRangeException("value = " + value.Length.ToString(), "The maximum " +
+					                       "payload for this packet is: " + MaxPayloadSize);
+
+File: FEC.cs
+1. No overload for method 'ArgumentOutOfRangeException' takes '3' arguments
+   Before:
+     throw new ArgumentOutOfRangeException("nbChecksumPackets", nbChecksumPackets,
+                                           "XOR can only produce 1 checksum packet");
+   After:
+     throw new ArgumentOutOfRangeException("nbChecksumPackets = " + nbChecksumPackets.ToString(),
+                                           "XOR can only produce 1 checksum packet");  
+
+File: PerformanceCounters.cs
+1. Removed all install/uninstall method. Compact Framework does not support Install
+   Commented all
+   [x 6 times]
+
+File: RtcpData.cs
+1. No overload for method 'GetString' takes '1' arguments
+   Before:
+     data = utf8.GetString(privs[prefixBytes]);
+   After:
+     data = utf8.GetString(privs[prefixBytes], 0, privs[prefixBytes].Length);
+     
+2. No overload for method 'GetString' takes '1' arguments
+   Before:
+     priExns.Add(utf8.GetString(key), utf8.GetString(val));
+   After:
+     priExns.Add(utf8.GetString(key, 0, key.Length), utf8.GetString(val, 0, val.Length));
+
+3. No overload for method 'GetString' takes '1' arguments
+   Before:
+     prefix = utf8.GetString((byte[])de.Key);
+   After: 
+     prefix = utf8.GetString((byte[])de.Key, ((byte[])de.Key).Length);
+
+4. No overload for method 'GetString' takes '1' arguments
+   Before:
+     data = utf8.GetString((byte[])de.Value);
+   After:
+     data = utf8.GetString((byte[])de.Value, 0, ((byte[])de.Value).Length);
+     
+5. No overload for method 'GetString' takes '1' arguments
+   Before:
+     ret = utf8.GetString(data[(int)type]);
+   After: 
+     ret = utf8.GetString(data[(int)type], 0, data[(int)type].Length);
+     
+6. 'System.Reflection.Assembly' does not contain a definition for 'GetEntryAssembly'
+   Replaced by GetCallingAssmbly
+   Before:
+     AssemblyName exe = Assembly.GetEntryAssembly().GetName();
+   After:
+     AssemblyName cexe = Assembly.GetCallingAssembly().GetName();
+
+
+File: RtcpPacket.cs
+1. No overload for method 'GetString' takes '1' arguments
+   Before:
+     ret = utf8.GetString(reason);
+   After: 
+     ret = utf8.GetString(reason, 0, reason.Length);
+     
+2. No overload for method 'GetString' takes '1' arguments
+   Before:
+     ret = new ASCIIEncoding().GetString(name);
+   After: 
+     ret = new ASCIIEncoding().GetString(name, 0, name.Length);

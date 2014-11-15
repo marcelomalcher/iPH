@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="http://server.session.iph/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CollaborativeSessionService" targetNamespace="http://server.session.iph/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8080/iPHSessionService/iPHSessionService?xsd=1" namespace="http://server.session.iph/" />
+    </xsd:schema>
+  </types>
+  <message name="isConnected">
+    <part name="parameters" element="tns:isConnected" />
+  </message>
+  <message name="isConnectedResponse">
+    <part name="parameters" element="tns:isConnectedResponse" />
+  </message>
+  <message name="addCollaborativeSession">
+    <part name="parameters" element="tns:addCollaborativeSession" />
+  </message>
+  <message name="addCollaborativeSessionResponse">
+    <part name="parameters" element="tns:addCollaborativeSessionResponse" />
+  </message>
+  <message name="removeCollaborativeSession">
+    <part name="parameters" element="tns:removeCollaborativeSession" />
+  </message>
+  <message name="removeCollaborativeSessionResponse">
+    <part name="parameters" element="tns:removeCollaborativeSessionResponse" />
+  </message>
+  <message name="clearRegion">
+    <part name="parameters" element="tns:clearRegion" />
+  </message>
+  <message name="clearRegionResponse">
+    <part name="parameters" element="tns:clearRegionResponse" />
+  </message>
+  <message name="clearAll">
+    <part name="parameters" element="tns:clearAll" />
+  </message>
+  <message name="clearAllResponse">
+    <part name="parameters" element="tns:clearAllResponse" />
+  </message>
+  <message name="getCollaborativeSessionsRegion">
+    <part name="parameters" element="tns:getCollaborativeSessionsRegion" />
+  </message>
+  <message name="getCollaborativeSessionsRegionResponse">
+    <part name="parameters" element="tns:getCollaborativeSessionsRegionResponse" />
+  </message>
+  <portType name="iPHSessionService">
+    <operation name="isConnected">
+      <input message="tns:isConnected" />
+      <output message="tns:isConnectedResponse" />
+    </operation>
+    <operation name="addCollaborativeSession">
+      <input message="tns:addCollaborativeSession" />
+      <output message="tns:addCollaborativeSessionResponse" />
+    </operation>
+    <operation name="removeCollaborativeSession">
+      <input message="tns:removeCollaborativeSession" />
+      <output message="tns:removeCollaborativeSessionResponse" />
+    </operation>
+    <operation name="clearRegion">
+      <input message="tns:clearRegion" />
+      <output message="tns:clearRegionResponse" />
+    </operation>
+    <operation name="clearAll">
+      <input message="tns:clearAll" />
+      <output message="tns:clearAllResponse" />
+    </operation>
+    <operation name="getCollaborativeSessionsRegion">
+      <input message="tns:getCollaborativeSessionsRegion" />
+      <output message="tns:getCollaborativeSessionsRegionResponse" />
+    </operation>
+  </portType>
+  <binding name="iPHSessionServicePortBinding" type="tns:iPHSessionService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="isConnected">
+      <soap:operation soapAction="urn:isConnected" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="addCollaborativeSession">
+      <soap:operation soapAction="urn:addCollaborativeSession" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="removeCollaborativeSession">
+      <soap:operation soapAction="urn:removeCollaborativeSession" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="clearRegion">
+      <soap:operation soapAction="urn:clearRegion" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="clearAll">
+      <soap:operation soapAction="urn:clearAll" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getCollaborativeSessionsRegion">
+      <soap:operation soapAction="urn:getCollaborativeSessionsRegion" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="CollaborativeSessionService">
+    <port name="iPHSessionServicePort" binding="tns:iPHSessionServicePortBinding">
+      <soap:address location="http://localhost:8080/iPHSessionService/iPHSessionService" />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,121 @@
+Project:
+1. Added reference to OpenNETCF for Serialization
+
+2. Added reference to Utils for PerformanceCounter class
+
+File: AppConfig.cs - Removed from project (Not needed)
+
+File: Firewall.cs - Removed from project (Compact Framework does not support)
+
+File: Installation.cs - Removed from project (Compact Framework does not support)
+
+File: EventLogWrapper.cs
+1. Added Reference to OpenNETCF.Diagnostics for EventLog
+
+2. There is no referente to ConfigurationManager
+   Commented all:
+     > string settingsNamespace = "MSR.LST.Common.EventLog";
+     > System.Collections.Specialized.NameValueCollection config = System.Configuration.ConfigurationManager.AppSettings;
+     > string setting;
+     >
+     > setting = config[settingsNamespace + ".TraceOnError"];
+     > if (setting != null)
+     >   TRACE_ON_ERROR = Boolean.Parse(setting);
+     >
+     > setting = config[settingsNamespace + ".TraceOnWarning"];
+     > if (setting != null)
+     >   TRACE_ON_WARNING = Boolean.Parse(setting);
+     >
+     > setting = config[settingsNamespace + ".TraceOnInfo"];
+     > if (setting != null)
+     >   TRACE_ON_INFO = Boolean.Parse(setting);
+     >
+     > setting = config[settingsNamespace + ".TicksBetweenEntry"];
+     > if (setting != null)
+     >   TICKS_BETWEEN_ENTRY = Int64.Parse(setting);
+
+3. OpenNETCF's EventLog has others constructor params
+   Before:
+     eventLog = new EventLog(logName, machineName, source);
+   After:
+     eventLog = new EventLog(logName, source, EventLogWriterType.XML);  
+
+4. Changed System.Diagnostics.Trace by OpenNETCF.Diagnostics.Trace2
+   Before:
+     Trace.WriteLine("ERROR: " + message);
+   After:
+     Trace2.WriteLine("ERROR: " + message);
+   
+   Before:
+     Trace.WriteLine("ERROR: " + message);
+   After:
+     Trace2.WriteLine("WARNING: " + message);
+    
+   Before:
+     Trace.WriteLine("INFO: " + message);
+   After:
+     Trace2.WriteLine("INFO: " + message);
+
+5. Removed all install/uninstall method. Compact Framework does not support Install
+   Commented all       
+   > public static void Install(string logName, string[] sourceNames) {...}
+   > public static void Uninstall(string logName, string[] sourceNames) {...}
+
+     
+File: PerfmonWrapper.cs
+1. Adding reference to CCXP.Utils.Performance for PerformanceCounter class
+
+2. Adding reference to OpneNETCF.Diagnostics for EventLogEntryType enum
+
+3. Removed all install/uninstall method. Compact Framework does not support Install
+   Commented all       
+   > public static void Install(string categoryName, string[] counterNames) {...}
+   > public static void Uninstall(string categoryName) {...}
+
+4. There is no PerformanceCounterCategory. Removed all. 
+   Used private method to check if instance already exists
+   Commented all       
+   
+5. There is no PerformanceCounterCategory.  
+   Created to supply PerformanceCounterCategory pcc.InstanceExists        
+
+6. Removed all install/uninstall method. Compact Framework does not support Install
+   Commented all       
+   > public static void Install(Type[] counterTypes) {...}
+   > public static void Uninstall(Type[] counterTypes) {...}
+
+File: UnhandledExceptionHandler.cs
+1. Adding reference to OpenNETCF.Diagnostics for EventLog class.
+
+2. Removed reference to ProductVersion. 
+   Before:
+     info += "\nProduct version: " + Application.ProductVersion.ToString();
+   After:
+     info += "\nProduct version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.Major.ToString();
+    
+3. Removed reference to ConfigurationManager.AppSettings. 
+   All commented:
+   if (ConfigurationManager.AppSettings[AppConfig.LST_ShowErrors] != null)
+   {
+     showMsg = bool.Parse(ConfigurationManager.AppSettings[AppConfig.LST_ShowErrors]);
+   }
+                
+4. OpenNETCF's EventLog has others constructor params
+   Before:
+     EventLog eventLog = new EventLog("UnEx", ".", "MSR.LST.UnEx");
+   After:
+     EventLog eventLog = new EventLog("UnEx", "MSR.LST.UnEx", EventLogWriterType.XML);
+                                  
+5. OpenNETCF's EventLog has a different WriteEntry method
+   Before:
+     eventLog.WriteEntry(info, EventLogEntryType.Error, 999);
+   After:
+     eventLog.WriteEntry(info);
+
+File: MemCheck.cs
+1. There is no referente to ConfigurationManager
+   Removed all:
+   > if(ConfigurationManager.AppSettings[AppConfig.LST_MemCheck] != null)
+   > {
+   >   check = bool.Parse(ConfigurationManager.AppSettings[AppConfig.LST_MemCheck]);
+   > }

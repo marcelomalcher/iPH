@@ -1,0 +1,17 @@
+Project:
+1. Added reference to Utils for DictionaryBase class
+
+2. Added reference to System.Drawing
+
+3. Added reference to CompactFormatter for serialization
+
+File: ICapability.cs
+1. Added reference to CCXP.Utils.Collections for DictionaryBase class
+
+File: IParticipant.cs
+1. Added reference to CCXP.Utils.Collections for DictionaryBase class
+
+File: IVenue.cs
+1. Added reference to CompactFormatter.Attributes for Serializable attribute
+
+

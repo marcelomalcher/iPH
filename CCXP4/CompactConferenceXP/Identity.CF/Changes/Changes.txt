@@ -1,0 +1,10 @@
+File: Identity.cs
+1. Removed reference to MessengerAPI. Then, there is no way to get the identifier from Messenger.
+
+2. Removed reference to Windows Authentication. There is no way to get the identifier from Windows at WinCE.
+
+3. Removed reference to config file, GetIdentifierFromMessenger and GetIdentifierFromWindows. 
+
+4. Verify this. When identifier is not set, what should be returned?
+   > return "Unknown";
+

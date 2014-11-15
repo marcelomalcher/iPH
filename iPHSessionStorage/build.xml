@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project basedir="." default="help" name="iPHSessionService">
+
+    <import file="etc/deploy-targets.xml"/>
+
+    <path id="jaxws.classpath">
+        <pathelement location="${java.home}/../lib/tools.jar"/>
+        <fileset dir="${metro.home}">
+            <include name="*.jar"/>
+            <exclude name="j2ee.jar"/>
+        </fileset>
+    </path>
+	
+	<path id="moca.classpath">
+		
+	</path>
+    
+    <taskdef name="apt" classname="com.sun.tools.ws.ant.Apt">
+        <classpath refid="jaxws.classpath"/>
+    </taskdef>
+
+	<target name="clean">
+        <delete dir="${build.home}" includeEmptyDirs="true"/>
+    </target>
+
+    <target name="setup">
+        <mkdir dir="${build.home}"/>
+        <mkdir dir="${build.classes.home}"/>
+        <mkdir dir="${build.war.home}"/>
+    </target>
+
+    <target name="build-server-java">
+        <apt
+	            fork="true"
+                debug="${debug}"
+                verbose="${verbose}"
+                destdir="${build.classes.home}"
+                sourcedestdir="${build.classes.home}"                
+                sourcepath="${basedir}/src">
+            <classpath>
+                <path refid="jaxws.classpath"/>
+                <pathelement location="${basedir}/src"/>
+            </classpath>
+			<option key="r" value="${build.home}"/>
+		    <source dir="${basedir}/src">
+		        <include name="iph/session/server/*.java"/>
+		    </source>
+        </apt>
+    </target>
+
+    <target name="create-war">
+        <war warfile="${build.war.home}/${ant.project.name}.war" webxml="etc/web.xml">
+            <webinf dir="${basedir}/etc" includes="sun-jaxws.xml"/>
+            <classes dir="${build.classes.home}"/>
+        </war>
+    </target>
+
+    <target name="help">
+        <echo message="server: Builds and deploy the service endpoint WAR"/>
+    </target>
+
+    <target name="server">
+        <antcall target="clean"/>
+		<antcall target="setup"/>
+        <antcall target="build-server-java"/>	
+        <antcall target="create-war"/>	
+    </target>
+
+</project>

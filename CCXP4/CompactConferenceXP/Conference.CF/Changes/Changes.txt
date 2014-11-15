@@ -1,0 +1,219 @@
+Project:
+1. Added CCXP.Utils for DictionaryBase
+2. Added CompactFormatter for Serialization
+3. Added OpenNETCF for EventLog
+
+File: CapabilityUtilities.cs
+1. Adding reference to CCXP.Utils.Collections for DictionaryBase
+
+2. Added reference to OpenNETCF.Diagnostics for EventLog
+
+3. Changes in MessageBox.Show in .NET CF
+
+4. There is no referente to Assembly.GetEntryAssembly
+   Before:
+     RegistryKey rtdocskey = Registry.CurrentUser.CreateSubKey("SOFTWARE\\Microsoft Research\\ConferenceXP\\Client\\" +
+     System.Reflection.Assembly.GetEntryAssembly().CodeBase + "\\CapabilityViewers");            
+   After:
+     RegistryKey rtdocskey = Registry.CurrentUser.CreateSubKey("SOFTWARE\\Microsoft Research\\ConferenceXP\\Client\\" +
+     System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase + "\\CapabilityViewers");            
+
+5. There is no referente to ConfigurationManager
+   Commented something...
+      
+6. Compact Framework does not support these exceptions
+   Commented and replaced by general Exception
+   Before:
+     // Perhaps a bad or old .Net Dll is here, ignore it.  This was firing for Shockwave Flash COM interop assemblies
+     catch (TypeInitializationException) { }
+     // Trying to reload an already loaded Dll, occurs for Conference.Dll, so just continue on...
+     catch (ReflectionTypeLoadException) { }
+   After:
+     catch (Exception) { }
+     
+7. GetInterface replaced.
+   Before:
+     Type iCV = type.GetInterface("MSR.LST.ConferenceXP.ICapabilityViewer");
+   After:
+     Assembly.Load("ConferenceXPInterfaces").GetType("MSR.LST.ConferenceXP.ICapabilityViewer");
+
+8. GetInterface replaced.
+   Before:
+     Type iCS = type.GetInterface("MSR.LST.ConferenceXP.ICapabilitySender");
+   After:
+     Type iCS = Assembly.Load("ConferenceXPInterfaces").GetType("MSR.LST.ConferenceXP.ICapabilitySender");
+
+9. Replaced Location to FullName
+   Before: 
+     DirectoryInfo diExe = new FileInfo(Assembly.GetExecutingAssembly().Location).Directory;
+   After:
+     DirectoryInfo diExe = new FileInfo(Assembly.GetExecutingAssembly().FullName).Directory;
+           
+File: Venue.cs
+1. Adding reference to CCXP.Utils.Collections for DictionaryBase
+
+2. Added reference to CompactFormatter.Attributes for Serializable attribute
+
+3. Removed System.Runtime.Serialization
+   Compact Framework does not support native serialization
+   Commented
+
+4. Added reference to CompactFormatter.Interfaces for ICSerializable Interface
+
+5. Changed ISerializable by ICSerializable
+   Before:
+     public class VenueList : ICollection, IEnumerable, ISerializable, ICloneable
+   After:
+     public class VenueList : ICollection, IEnumerable, ICSerializable, ICloneable
+
+6. Changed to support CompactFormatter values
+      
+7. There is no more ISerializable implementation
+   Commented all
+   > #region ISerializable Members
+   > public void GetObjectData(SerializationInfo info, StreamingContext context)
+   > {
+   >   Venue[] venues = (Venue[])arrayList.ToArray(typeof(Venue));
+   >   info.AddValue("Venues", venues, typeof(Venue[]));
+   > }
+   > #endregion
+
+8. Added reference to CompactFormatter.Exception for SerializationException
+        
+File: CapabilityBase.cs
+1. Removed System.Runtime.Serialization.Formatters.Binary
+   Compact Framework does not support native serialization and binary formatter
+   Commented
+   
+2. There is no BinaryFormatter in Compact Framework
+   Changed by CompactFormatter
+   Before:
+     private BinaryFormatter bfSend = null;
+   After:
+     private CompactFormatter.CompactFormatter bfSend = null;
+
+   Before:
+     private BinaryFormatter bfSendBackground = null;
+   After:
+     private CompactFormatter.CompactFormatter bfSendBackground = null;
+   
+   Before:
+     private BinaryFormatter bf = new BinaryFormatter();
+   After:
+     private CompactFormatter.CompactFormatter bf = new BinaryFormatter();
+
+3. There is no BinaryFormatter in Compact Framework
+   Changed by CompactFormatter
+   Before:
+     private void _SendObject(object o, RtpSender rtpSender, MemoryStream ms, BinaryFormatter bf)
+   After:
+     private void _SendObject(object o, RtpSender rtpSender, MemoryStream ms, CompactFormatter.CompactFormatter bf)
+
+4. Added reference to OpenNETCF.Diagnostics for EventLog
+
+5. Changed to CompactFormatter
+   Before:
+     bfSend = new BinaryFormatter();
+   After:
+     bfSend = new CompactFormatter.CompactFormatter();
+     
+6. Changed to CompactFormatter
+              Before:
+                bfSendBackground = new BinaryFormatter();
+              After:
+                bfSendBackground = new CompactFormatter.CompactFormatter();
+                
+7. There is no referente to ConfigurationManager
+   Removed all 
+
+File: ConferenceEventLog.cs
+1. Added reference to OpenNETCF.Diagnostics for EventLog
+
+2. Removed all install/uninstall methods
+
+File: Conference.cs
+1. Added reference to OpenNETCF.Diagnostics for EventLog
+
+2. Changes in MessageBox.Show in .NET CF
+
+3. There is no referente to ConfigurationManager
+   Removed all 
+
+4. Replaced all reference from SystemInformation.WorkingArea to Screen.PrimaryScreen.WorkingArea
+
+5. System.Reflection.Assembly does not contain a definition for Location
+   Before:
+     FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(a.Location);
+   After:
+     FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(a.FullName);
+     if (fvi != null)
+       return a.GetName().Name + " : " + fvi.FileMajorPart + "." + fvi.FileMinorPart;
+     else
+       return a.GetName().Name;
+       
+6. There is no reference to ConfigurationManager
+   Commented all
+  
+7. No overload for method CreateInstance takes 2 arguments
+   Commented all
+   
+8. There is no support for installation
+   Commented all
+         
+File: VenueBroker.cs
+1. Added reference to OpenNETCF.Diagnostics for EventLog
+
+2. System.Reflection.Assembly does not contain a definition for Location
+   Before:
+     string entryAssemFile = System.Reflection.Assembly.GetExecutingAssembly().Location;
+   After:
+     string entryAssemFile = System.Reflection.Assembly.GetExecutingAssembly().FullName;
+
+3. The type or namespace name 'FileVersionInfo' does not exist in the namespce 'System.Diagnostics'...
+   Before:
+     string fileVersion = System.Diagnostics.FileVersionInfo.GetVersionInfo(entryAssemFile).ProductVersion;
+   After:
+     string fileVersion = OpenNETCF.Diagnostics.FileVersionInfo.GetVersionInfo(entryAssemFile).ProductMajorPart.ToString() + "." + OpenNETCF.Diagnostics.FileVersionInfo.GetVersionInfo(entryAssemFile).ProductMinorPart.ToString();
+
+4. Only works for IPv4
+
+File: OptionsForm.cs
+1. Changes in MessageBox.Show in .NET CF
+
+2. This version does not contain link to privacy pliciy
+   Commented
+   
+3. This version does not contain participant's icon
+
+4. This version does not send a bitmap to venue as icon
+
+File: Utilities.cs
+1. The type name 'GetThumbnailImageAbort' does not exist in the type 'System.Drawing.Image'
+
+2. The type name 'GetThumbnailImageAbort' does not exist in the type 'System.Drawing.Image'
+   Commented
+
+3. Added to replace GetThumbnailImage
+
+4. Replaced by Rectangles
+   Before:
+     x = (96 - myThumbnail.Width) / 2;
+     y = (96 - myThumbnail.Height) / 2;
+   After:
+     x = (96 - newImageSize.Width) / 2;
+     y = (96 - newImageSize.Height) / 2;
+
+5. Replaced by...
+   Before:
+     g.DrawImage(myThumbnail, new Rectangle(new Point(x, y), new Size(myThumbnail.Width, myThumbnail.Height)));
+   After:
+     g.DrawImage(masterImage, newImageSize, oldImageSize, GraphicsUnit.Pixel);
+
+6. Rectangle and DrawImage don't have overloads that takes 2 arguments [3x]
+   Before:
+     g.DrawImage(new Bitmap(stream), new Rectangle(new Point(1, 1), new Size(32, 24)));
+   After: 
+     Bitmap bmp = new Bitmap(stream);
+     Rectangle oldImageSize = new Rectangle(0, 0, bmp.Width, bmp.Height);
+     Rectangle newImageSize = new Rectangle(1, 1, 32, 34);
+     g.DrawImage(bmp, newImageSize, oldImageSize, GraphicsUnit.Pixel);

@@ -1,0 +1,262 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C08D5E61-345F-488A-B7C1-15459F67704A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>iPH.Tool.Desktop</RootNamespace>
+    <AssemblyName>iPH XP</AssemblyName>
+    <ApplicationIcon>iPH icon.ico</ApplicationIcon>
+    <StartupObject>iPH.Tool.Desktop.Program</StartupObject>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CompactFormatter, Version=1.0.0.27374, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\CompactFormatter-1.0.0\netcf-1.0\CompactFormatter.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ConfigurationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigurationForm.Designer.cs">
+      <DependentUpon>ConfigurationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ConfigurationForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ConfigurationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\CCXP4\CompactConferenceXP\MSR.LST.Net.Rtp.CF\MSR.LST.Net.Rtp.CF.csproj">
+      <Project>{8CDF6129-1D9D-4A28-8FAA-F360BDEAB322}</Project>
+      <Name>MSR.LST.Net.Rtp.CF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\CCXP4\CompactConferenceXP\NetworkingBasics.CF\NetworkingBasics.CF.csproj">
+      <Project>{D72A99EC-2A0D-4221-835F-94E6F2291547}</Project>
+      <Name>NetworkingBasics.CF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\LAC.Contributions\LAC.Contribution\LAC.Contribs.csproj">
+      <Project>{CD40A8C1-A2BB-478F-BC4D-5F4D434949D4}</Project>
+      <Name>LAC.Contribs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Commons\Commons\iPH.Commons.csproj">
+      <Project>{E7632C00-6507-47CE-91CE-701798B7779F}</Project>
+      <Name>iPH.Commons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Commons\ContextInformation\LAC.ContextInformation.csproj">
+      <Project>{165BAA2C-B9D6-4CE0-A5A5-A585BC5EABD5}</Project>
+      <Name>LAC.ContextInformation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Commons\LAC.Communications\LAC.Communications.csproj">
+      <Project>{4271FA08-08DA-48B9-BF75-DE33A30754C7}</Project>
+      <Name>LAC.Communications</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Commons\LAC.Functions\LAC.Functions.csproj">
+      <Project>{03F8E2E9-390E-431F-A3E6-DDBA2F0DEFB5}</Project>
+      <Name>LAC.Functions</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imTextWrite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imConnect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imContextInformation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imDisconnect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imglink.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imglinkbreak.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imglinkerror.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iminkwrite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imnext.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imprevious.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imReceiveFromContribuitors.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imReceiveFromContribuitorsStop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imSendToMaster.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imslideadd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imslidedelete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imslidenew.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imslidenewprivate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imslidenext.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imslideprevious.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imslideremove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imSynchronizedViewer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imNotSynchronizedMaster.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imNotSynchronizedViewer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imSynchronizedMaster.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imSynchronizedMasterAttention.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imRequestSync.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imAbout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imTextWrite2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imInkErase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imTextErase2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Resources\imConfiguration.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imFullScreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iminkerase2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imTextWrite3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imTextErase4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="iPH.Desktop.cd" />
+    <None Include="Resources\imTextErase21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="iPH icon.ico" />
+    <Content Include="LAC icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

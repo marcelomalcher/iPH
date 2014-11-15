@@ -1,0 +1,245 @@
+Project:
+1. Added reference to LAC.Ink for ink collect
+
+2. Added reference to CompactFormatter for serialization
+
+3. Added reference to CCXP.Utils for collections
+
+File: CustomCollections.cs
+1. Removed System.Runtime.Serialization
+   Compact Framework does not support native serialization
+   Commented
+   > using System.Runtime.Serialization;
+   
+2. Added reference to CCXP.Utils for DictionaryBase class
+
+3. Added reference to CompactFormatter.Attributes for Serializable attribute
+
+4. Added reference to CompactFormatter.Intergaces for ICSerializable interface
+
+5. Changed ISerializable by ICSerializable
+   Before:
+     public class TOCList : ICollection, IEnumerable, ISerializable, ICloneable
+   After:
+     public class TOCList : ICollection, IEnumerable, ICSerializable, ICloneable
+
+6. There is no more ISerializable implementation
+   Commented all GetObjectData
+
+7. Changed to support CompactFormatter values
+   Commented original
+
+8. Implements interface ICSerializable
+   Serializing object
+   
+9. Implements interface ICSerializable
+   Deserializing object
+
+10. Added reference to CompactFormatter.Exception for SerializationException
+           
+File: RTDocument.cs
+1. Removed System.Runtime.Serialization
+   Compact Framework does not support native serialization
+   Commented
+   > using System.Runtime.Serialization;
+   
+2. Added reference to CompactFormatter.Attributes for Serializable attribute
+
+3. Added reference to CompactFormatter.Intergaces for ICSerializable interface
+
+4. Changed ISerializable by ICSerializable
+   Before:
+     public class RTImage : ISerializable
+   After:
+     public class RTImage : ICSerializable 
+
+5. Removed invokes to Gdi32.dll
+   Commented all
+
+6. Changed to support CompactFormatter values
+
+
+7. There is no GetObjectData
+   Commented all
+
+8. Implements interface ICSerializable
+   Deserializing object
+
+9. Implements interface ICSerializable
+   Serializing object
+   
+10. Removed attribute Serializable for enum
+    //[Serializable]
+    
+11. Not using ResourceType. There is no need to serialize this.
+
+File: RTFrame.cs
+1. Removed System.Runtime.Serialization.Formatters.Binary
+   Compact Framework does not support native serialization and binary formatter
+   Commented
+   > using System.Runtime.Serialization;
+   
+2. Added reference to CompactFormatter.Attributes for Serializable attribute
+
+3. There is no BinaryFormatter in Compact Framework
+   Changed by CompactFormatter
+   Before:
+     BinaryFormatter bf = new BinaryFormatter();
+   After:
+     CompactFormatter.CompactFormatter bf = new CompactFormatter.CompactFormatter(CompactFormatter.CFormatterMode.SAFE);
+     
+4. There is no BinaryFormatter in Compact Framework
+   Changed by CompactFormatter
+   Before:
+     BinaryFormatter bf = new BinaryFormatter();
+   After:
+     CompactFormatter.CompactFormatter bf = new CompactFormatter.CompactFormatter(CompactFormatter.CFormatterMode.SAFE);
+
+File: RTNavigation.cs
+1. Removed System.Runtime.Serialization
+   Compact Framework does not support native serialization
+   Commented
+   > using System.Runtime.Serialization;
+   
+2. Added reference to CompactFormatter.Attributes for Serializable attribute
+
+File: RTStroke.cs
+1. Removed System.Runtime.Serialization
+   Compact Framework does not support native serialization
+   Commented
+   > using System.Runtime.Serialization;
+
+2. Removed System.Runtime.Serialization.Formatters.Binary
+   Compact Framework does not support native serialization and binary formatter
+   Commented
+   > using System.Runtime.Serialization.Formatters.Binary;
+
+3. Added reference to CompactFormatter.Attributes for Serializable attribute
+
+4. Removed Microsoft.Ink
+   Microsoft.Ink is specific for .NET Framework and does not work at Compact version
+   Commented
+   > using Microsoft.Ink;
+
+5. Added reference to LAC.Ink for ink collection
+
+6. Added reference to CompactFormatter.Intergaces for ICSerializable interface
+
+7. Changed ISerializable by ICSerializable
+   Before:
+     public class RTStroke : ISerializable
+   After:
+     public class RTStroke : ICSerializable
+     
+8. Changed to support CompactFormatter values
+   Before:
+     protected RTStroke(SerializationInfo info, StreamingContext context)
+     {
+       this.ReceiveObjectData(parent, stream);
+       ink = new Ink();
+       ink.Load((byte[])info.GetValue("Ink", typeof(byte[])));
+       DocumentIdentifier = new Guid(info.GetString("DocumentIdentifier"));
+       PageIdentifier = new Guid(info.GetString("PageIdentifier"));
+       Extension = info.GetValue("Extension", typeof(object));
+     }
+
+   After:
+     protected RTStroke(CompactFormatter.CompactFormatter parent, Stream stream)
+     {
+       this.ReceiveObjectData(parent, stream);
+     }
+
+
+9. There is no GetObjectData
+   Commented all
+   
+10. Implements interface ICSerializable (ReceiveObjectData)
+    Deserializing object
+
+11. Implements interface ICSerializable (SendObjectData)
+    Serializing object
+
+12. Changed ISerializable by ICSerializable
+    Before:
+      public class RTStrokeAdd : RTStroke, ISerializable
+    After:
+      public class RTStrokeAdd : RTStroke, ICSerializable
+
+13. Changed to support CompactFormatter values
+    Before:
+      protected RTStrokeAdd(SerializationInfo info, StreamingContext context): base(info, context)
+      {
+        CreationTime = info.GetDateTime("CreationTime");
+      }
+        ///</summary>
+    After:
+      protected RTStrokeAdd(CompactFormatter.CompactFormatter parent, Stream stream): base(parent, stream)
+      {
+        this.ReceiveObjectData(parent, stream);            
+      }
+
+14. There is no GetObjectData
+    Commented all
+
+15. Implements interface ICSerializable
+    Deserializing object
+
+16. Implements interface ICSerializable
+    Serializing object
+    
+17. Added reference to LAC.Ink.Enums
+
+18. Make explicit Cast
+    Before:
+      checkStrokeForStrokeIdentifier(ink.Strokes[0]);
+    After:
+      checkStrokeForStrokeIdentifier((Stroke)ink.Strokes[0]);
+
+19. Make explicit Cast
+    Before:
+      return ink.Strokes[0];
+    After:
+      return (Stroke)ink.Strokes[0];
+
+20. Make explicit Cast
+    Before:
+      checkStrokeForStrokeIdentifier(ink.Strokes[0]);
+    After:
+      checkStrokeForStrokeIdentifier((Stroke)ink.Strokes[0]);
+
+21. Make explicit Cast
+    Before:
+      return ink.Strokes;
+    After:
+      return (Strokes)ink.Strokes;
+      
+22. Make explicit Cast
+    Before:
+      Strokes ourStroke = stroke.Ink.CreateStrokes(strokeIds);
+    After:
+      Strokes ourStroke = (Strokes)stroke.Ink.CreateStrokes(strokeIds);
+
+23. Make explicit Cast
+    Before:
+      Ink fromInk = stroke.Ink;
+    After:
+      Ink fromInk = (Ink)stroke.Ink;
+            
+24. Make explicit Cast
+    Before:
+      ink = fromInk.ExtractStrokes(ourStroke, ExtractFlags.CopyFromOriginal);
+    After:
+      ink = (Ink)fromInk.ExtractStrokes(ourStroke, ExtractFlags.CopyFromOriginal);
+      
+25. There is just one format for saving ink
+    Before:
+      inkData = ink.Save(PersistenceFormat.InkSerializedFormat);
+    After:
+      inkData = ink.Save();
+
+26. Changed type:
+    Before:            
+      int[] strokeIds = new int[1];
+    After:
+      Guid[] strokeIds = new Guid[1];
+           

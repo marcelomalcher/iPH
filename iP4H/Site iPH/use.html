@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2" />
+
+	<meta http-equiv="Content-Language" content="English" />
+
+	<meta name="Author" content="Luka Cvrk (luka@solucija.com)" />
+
+	<meta name="Robots" content="index,follow" />
+
+	<meta name="Description" content="Artificial Intelligence" />
+
+	<meta name="Keywords" content="artificial, intelligence" />
+
+	<link rel="stylesheet" type="text/css" href="style.css" />
+
+	<title>iPH - Interactive Presenter for Handhelds</title>
+
+    <style type="text/css">
+
+<!--
+
+.style1 {color: #8D9CAF}
+
+-->
+
+    </style>
+
+</head>
+
+<body>
+
+	<div id="main">
+
+		<div id="logo">
+
+			<h1>iPH - Interactive Presenter for Handhelds </h1>
+
+		</div>
+
+		<ul id="menu">
+
+			<li><a href="index.html" accesskey="h"><span class="key">H</span>ome</a></li>
+
+			<li><a href="archive.html" accesskey="r"><span class="key">A</span>rchive</a></li>
+
+			<li><a href="downloads.html" accesskey="r"><span class="key">D</span>ownloads</a></li>
+
+			<li class="active"><span class="key">U</span>sage</li>
+
+			<li><a href="info.html" accesskey="c">More <span class="key">I</span>nfo</a></li>
+
+		</ul>
+
+		
+
+		<div id="intro_left">
+
+			<p>Developed at: </p>
+
+		</div>
+
+		
+
+	  <div id="intro_right">
+
+			<p class="white">&nbsp;</p>
+
+		  <h1>Using iPH </h1>
+
+		  <p>&nbsp;</p>
+
+	  </div>
+
+
+
+		<ul id="menu_left"><li></li>
+		</ul>
+
+		
+
+		<div id="left">
+
+		  <div class="box">
+
+			  <h2 align="center"><a href="http://www.lac.inf.puc-rio.br"><img src="images/logolac.gif" alt="" width="171" height="79" /></a></h2>
+
+		  </div>
+
+			<div class="note">
+
+				<p><a href="info.html" title="Register Now!">Contact us</a> and tell your experience with iPH </p>
+
+			</div>
+
+		</div>
+
+		<div id="right">
+
+		  <div class="leftcol">
+
+			  <h3>Using iPH with services:</h3>
+				<p>- In order to use iPH with context-aware functions you need to configure it to access <a href="http://www.lac.inf.puc-rio.br/moca">MoCA</a> through <a href="http://www.lac.inf.puc-rio.br/moca/personalities/moca-ws/moca-ws.html">MoCA/WS</a>. 
+				<p>- 
+		    To use the session storage function, iPHSessionService is needed. 
+			<p>You need a web container for Java applications like <a href="http://tomcat.apache.org/">Tomcat 6</a>. Install it and also download the <a href="https://jax-ws.dev.java.net/">JAX/WS</a> API and configure Tomcat to look for JAR files at the JAX/WS lib folder..
+				<p>Then, download the following war files and 
+			    deploy them to Tomcat:
+				<ul>
+				  <li><a href="files/archive/iPHSessionService.war">iPHSessionService</a></li>
+		          <li><a href="files/archive/mocaWS.war">MoCA/WS</a>
+		            <ul>
+		              <li>Configuration information <a href="http://www.lac.inf.puc-rio.br/moca/personalities/moca-ws/moca-ws.html">here</a>. </li>
+	                </ul>
+		          </li>
+            </ul>
+				<p>The user has to configure the iPH application to access the services MoCA/WS and iPHSessionService. To do this, he/she has to access the menu option at Edit &gt; Configuration and insert the addresses to the services, like the example below. </p>
+				<p align="center"><img src="images/Configuration.jpg" alt="" width="456" height="280" /></p>
+				<p>
+		  </div>
+
+	  </div>
+
+		<div id="footer">
+
+			<p>&copy; Copyright 2007 - LAC Laboratory for Advanced Collaboration </p>
+
+		</div>
+
+	</div>
+
+</body>
+
+</html>

@@ -1,0 +1,220 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{317EFF49-7F8A-45FA-A90D-F1914F977725}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>iPH.Tool.Mobile</RootNamespace>
+    <AssemblyName>iPH Mobile</AssemblyName>
+    <ProjectTypeGuids>{4D628B5B-2FBC-4AA6-8C16-197242AEB884};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PlatformFamilyName>WindowsCE</PlatformFamilyName>
+    <PlatformID>E2BECB1F-8C8C-41ba-B736-9BE7D946A398</PlatformID>
+    <OSVersion>5.0</OSVersion>
+    <DeployDirSuffix>iP4HMobile</DeployDirSuffix>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FormFactorID>
+    </FormFactorID>
+    <ApplicationIcon>iPH icon.ico</ApplicationIcon>
+    <StartupObject>iPH.Tool.Mobile.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;$(PlatformFamilyName)</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <FileAlignment>512</FileAlignment>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;$(PlatformFamilyName)</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <FileAlignment>512</FileAlignment>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CompactFormatter, Version=1.0.0.27374, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\CompactFormatter-1.0.0\netcf-1.0\CompactFormatter.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="OpenNETCF.Configuration, Version=2.2.0.0, Culture=neutral, PublicKeyToken=e60dbea84bb431b7, processorArchitecture=MSIL" />
+    <Reference Include="OpenNETCF.Windows.Forms, Version=2.1.0.0, Culture=neutral, PublicKeyToken=e60dbea84bb431b7, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ConfigurationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigurationForm.Designer.cs">
+      <DependentUpon>ConfigurationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormatTextFont.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormatTextFont.Designer.cs">
+      <DependentUpon>FormatTextFont.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MobileMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MobileMainForm.Designer.cs">
+      <DependentUpon>MobileMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormatTextFont.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormatTextFont.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MobileMainForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MobileMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SlideInformationForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SlideInformationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="SlideInformationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SlideInformationForm.Designer.cs">
+      <DependentUpon>SlideInformationForm.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\CCXP4\CompactConferenceXP\MSR.LST.Net.Rtp.CF\MSR.LST.Net.Rtp.CF.csproj">
+      <Project>{8CDF6129-1D9D-4A28-8FAA-F360BDEAB322}</Project>
+      <Name>MSR.LST.Net.Rtp.CF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\CCXP4\CompactConferenceXP\NetworkingBasics.CF\NetworkingBasics.CF.csproj">
+      <Project>{D72A99EC-2A0D-4221-835F-94E6F2291547}</Project>
+      <Name>NetworkingBasics.CF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\LAC.Contributions\LAC.Contribution\LAC.Contribs.csproj">
+      <Project>{CD40A8C1-A2BB-478F-BC4D-5F4D434949D4}</Project>
+      <Name>LAC.Contribs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Commons\Commons\iPH.Commons.csproj">
+      <Project>{E7632C00-6507-47CE-91CE-701798B7779F}</Project>
+      <Name>iPH.Commons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Commons\ContextInformation\LAC.ContextInformation.csproj">
+      <Project>{165BAA2C-B9D6-4CE0-A5A5-A585BC5EABD5}</Project>
+      <Name>LAC.ContextInformation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Commons\LAC.Communications\LAC.Communications.csproj">
+      <Project>{4271FA08-08DA-48B9-BF75-DE33A30754C7}</Project>
+      <Name>LAC.Communications</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Commons\LAC.Functions\LAC.Functions.csproj">
+      <Project>{03F8E2E9-390E-431F-A3E6-DDBA2F0DEFB5}</Project>
+      <Name>LAC.Functions</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\imTextWrite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\imDeckView.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\imFullScreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\imInkErase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\imInkWrite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\imNextSlide.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\imPreviousSlide.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\imSlidePrivate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\imSlidePublic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\imTextErase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\imSlideView.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\imAbout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\imPreviousSlide2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\imZoomIn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\imZoomOut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\imNextSlide2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\imDefaultSize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\imInformation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="iPH icon.ico" />
+  </ItemGroup>
+  <Import Condition="'$(TargetFrameworkVersion)' == 'v1.0'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.v1.targets" />
+  <Import Condition="'$(TargetFrameworkVersion)' == 'v2.0'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}">
+        <HostingProcess disable="1" />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,12 @@
+<project>
+	
+    <property environment="env"/>
+
+    <property name="metro.home" value="${env.METRO_HOME}/lib"/>
+    <property name="build.home" value="${basedir}/build"/>
+    <property name="build.war.home" value="${build.home}/war"/>
+    <property name="build.classes.home" value="${build.home}/classes"/>
+	<property name="conf.home" value="${basedir}/conf"/>
+
+</project>
+

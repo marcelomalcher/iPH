@@ -1,0 +1,72 @@
+Project
+1. Added CompactFormatter
+
+File: ReflectorMessage.cs
+1. Added reference to CompactFormatter for serialization.
+
+File: BufferChunk.cs
+1. No overload for method 'ArgumentOutOfRangeException' takes '3' arguments
+  Before:
+  > throw new ArgumentOutOfRangeException("val", val, "All integer values (size, index, length) must be >= 0");
+  After:
+  > throw new ArgumentOutOfRangeException("val = " + val.ToString(), "All integer values (size, index, length) must be >= 0");                
+
+2. No overload for method 'GetString' takes 1 arguments
+  Before:
+  > return utf8.GetString((byte[])source);
+  After:
+  > return utf8.GetString((byte[])source, 0, source.Length);
+ 
+File: Utility.cs
+1. There isn't EventLog at WindowsCE/.NET CompactFramework.
+   Changed by Console.WriteLine
+   Before:
+   > EventLog.WriteEntry("RtpListener", se.ToString(), EventLogEntryType.Warning, 99);
+   After:
+   > Console.WriteLine("RtpListener: " + se.ToString());                    
+
+2. There isn't EventLog at WindowsCE/.NET CompactFramework.
+   Changed by Console.WriteLine
+   Before:
+   > EventLog.WriteEntry("RtpListener", se.ToString(), EventLogEntryType.Warning, 99);
+   After:
+   > Console.WriteLine("RtpListener: " + se.ToString());                    
+   
+3. There isn't Socket.OSSupportsIPv6
+   Removed
+   Before:
+   > if (Socket.OSSupportsIPv6 && ipAddress.AddressFamily == AddressFamily.InterNetworkV6)
+   After:
+   > if (ipAddress.AddressFamily == AddressFamily.InterNetworkV6)
+
+4. There isn't CharSet.Ansi
+   Changet by CharSet.Unicode
+   Before:
+   > [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+   After:
+   > [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
+   
+5. There isn't CharSet.Ansi
+   Changet by CharSet.Unicode
+   Before:
+   > [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+   After:
+   > [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
+   
+6. Marshal.StructureToPtr for .NET CF only works with third parameter equals to false
+   Before:
+     Marshal.StructureToPtr(inAddr, ptrInAddr, true);
+   After:
+     Marshal.StructureToPtr(inAddr, ptrInAddr, false);
+     
+7. Marshal.StructureToPtr for .NET CF only works with third parameter equals to false
+   Before:
+     Marshal.StructureToPtr(inAddr, ptrInAddr, true);
+   After:
+     Marshal.StructureToPtr(inAddr, ptrInAddr, false);
+     
+File: UdpSender.cs
+
+1. Removed because Compact Framework does not support MulticastLoopback
+   Commented:
+   > sock.SetSocketOption(sOL, SocketOptionName.MulticastLoopback, 1);

@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Tahoma" Size="8.25" />
+  <Class Name="LAC.Communications.CommunicationControl" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <FileName>CommunicationControl.cs</FileName>
+      <HashCode>gABACgAAgDAAAAABAAAAAIAAKAAAAAARAAAgkACAQQM=</HashCode>
+    </TypeIdentifier>
+    <NestedTypes>
+      <Enum Name="LAC.Communications.CommunicationControl.ConnectionMode" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>CommunicationControl.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Class Name="LAC.Communications.CommunicationControl.ReceiveDelegateEventArgs" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>CommunicationControl.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Delegate Name="LAC.Communications.CommunicationControl.ReceiveDelegateEventHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>CommunicationControl.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="LAC.Communications.CommunicationControl.ListeningThreadMethod" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>CommunicationControl.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Class Name="LAC.Communications.CommunicationControl.ListeningMethodArguements" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>CommunicationControl.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Delegate Name="LAC.Communications.CommunicationControl.ReceiveDelegate" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>CommunicationControl.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+  </Class>
+  <Class Name="LAC.Communications.SendingQueue" Collapsed="true">
+    <Position X="0.5" Y="2" Width="2" />
+    <TypeIdentifier>
+      <FileName>SendingQueue.cs</FileName>
+      <HashCode>EAAAAAAAACACEAAAAGgAAAAAAAAAAAAIAAAAQAAoAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LAC.Communications.MessageSender" Collapsed="true">
+    <Position X="0.5" Y="1.25" Width="2" />
+    <TypeIdentifier>
+      <FileName>MessageSender.cs</FileName>
+      <HashCode>hAAAAIAAAAAAAABAAEAAAAAAAAAAAAAAAAAAEACAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LAC.Communications.Utility" Collapsed="true">
+    <Position X="2.75" Y="2" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>Utility.cs</FileName>
+      <HashCode>AAAAAAAAgAAAAAAAAAAAAIAQAAAAAEAAAAAAAAAIQAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="LAC.Communications.Interfaces.ICommunications" Collapsed="true">
+    <Position X="2.75" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>Interfaces\ICommunications.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+</ClassDiagram>
